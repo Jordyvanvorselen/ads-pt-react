@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { connect } from "react-redux"
 import { fetchItems } from "../actions/items"
+import { push } from "react-router-redux"
 
 class Overview extends React.Component {
   static propTypes = {
@@ -20,7 +21,10 @@ class Overview extends React.Component {
         <table>
           <tbody>
             {this.props.data.map((item, index) => (
-              <tr key={`item-${item.id}`}>
+              <tr
+                key={`item-${item.id}`}
+                onClick={() => this.props.navigate(item.id)}
+              >
                 <td>{item.id}</td>
                 <td>{item.name}</td>
               </tr>
@@ -36,7 +40,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  fetchItems: fetchItems
+  fetchItems: fetchItems,
+  navigate: id => push(`/detail?id=${id}`)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Overview)
