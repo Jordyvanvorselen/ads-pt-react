@@ -18,16 +18,19 @@ export default class Detail extends React.Component {
     else if (this.props.error) return <p>Error</p>
     else
       return (
-        <table>
-          <tbody>
-            {this.props.data.map((transaction, index) => (
-              <tr key={`transaction-${index}`}>
-                <td>{transaction.timestamp}</td>
-                <td>{transaction.buyingPrice}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div>
+          <h1>{this.props.data.name}</h1>
+          <table>
+            <tbody>
+              {this.props.data.rsbuddy.map((transaction, index) => (
+                <tr key={`transaction-${index}`}>
+                  <td>{transaction.timestamp}</td>
+                  <td>{transaction.buyingPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )
   }
 }

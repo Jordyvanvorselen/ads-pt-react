@@ -19,7 +19,7 @@ export function* getRsBuddy(id) {
         }`
     )
 
-    yield put(fetchRsBuddySuccess(data.item.rsbuddy))
+    yield put(fetchRsBuddySuccess(data.item))
   } catch (exception) {
     yield put(fetchRsBuddyFailed())
     //throw exception

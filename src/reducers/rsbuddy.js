@@ -4,7 +4,7 @@ import {
 } from "../actions/action-types"
 
 export function rsbuddyReducer(
-  state = { data: [], loading: false, error: null },
+  state = { data: { name: null, rsbuddy: [] }, loading: false, error: null },
   { type, loading, error, data }
 ) {
   switch (type) {
