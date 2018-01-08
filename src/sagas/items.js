@@ -3,7 +3,7 @@ import { takeLatest } from "redux-saga"
 import { ITEMS_FETCH } from "../actions/action-types"
 import { fetchItemsSuccess, fetchItemsFailed } from "../actions/items"
 
-const fetchGraphQL = (url, query) =>
+export const fetchGraphQL = (url, query) =>
   fetch(url, {
     method: "POST",
     headers: {
@@ -13,7 +13,6 @@ const fetchGraphQL = (url, query) =>
   })
     .then(response => response.json())
     .then(({ data }) => data)
-    .then(({ items }) => items)
 
 export function* getItems() {
   try {
@@ -29,7 +28,7 @@ export function* getItems() {
       }`
     )
 
-    yield put(fetchItemsSuccess(data))
+    yield put(fetchItemsSuccess(data.items))
   } catch (exception) {
     yield put(fetchItemsFailed())
     //throw exception
