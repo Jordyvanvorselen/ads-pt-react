@@ -1,15 +1,15 @@
 import { default as OverviewComponent } from "../components/Overview"
 import { connect } from "react-redux"
 import { fetchItems } from "../actions/items"
-import { push } from "react-router-redux"
+import { navigateDetail } from "../actions/navigation"
 
 const mapStateToProps = state => ({
   ...state.items
 })
 
 const mapDispatchToProps = {
-  fetchItems: fetchItems,
-  navigate: id => push(`/detail?id=${id}`)
+  fetchItems,
+  navigate: navigateDetail
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OverviewComponent)
