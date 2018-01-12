@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import queryString from "query-string"
+import PriceChart from "./charts/PriceChart"
 
 export default class Detail extends React.Component {
   static propTypes = {
@@ -16,21 +17,39 @@ export default class Detail extends React.Component {
   render() {
     if (this.props.loading) return <p>Loading</p>
     else if (this.props.error) return <p>Error</p>
-    else
+    else {
+      const fWidth = 1200
+      const fHeight = 600
+
+      const margin = { top: 20, right: 20, bottom: 50, left: 75 }
+
       return (
         <div>
           <h1>{this.props.data.name}</h1>
-          <table>
-            <tbody>
-              {this.props.data.rsbuddy.map((transaction, index) => (
-                <tr key={`transaction-${index}`}>
-                  <td>{transaction.timestamp}</td>
-                  <td>{transaction.buyingPrice}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+          <PriceChart
+            data={this.props.data.rsbuddy}
+            xMap={d => new Date(d.timestamp)}
+            yMap={d => parseFloat(d.buyingPrice)}
+            width={fWidth}
+            height={fHeight}
+            margin={margin}
+          />
         </div>
+        // <div>
+        //   <h1>{this.props.data.name}</h1>
+        //   <table>
+        //     <tbody>
+        //       {this.props.data.rsbuddy.map((transaction, index) => (
+        //         <tr key={`transaction-${index}`}>
+        //           <td>{transaction.timestamp}</td>
+        //           <td>{transaction.buyingPrice}</td>
+        //         </tr>
+        //       ))}
+        //     </tbody>
+        //   </table>
+        // </div>
       )
+    }
   }
 }
