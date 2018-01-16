@@ -4,15 +4,18 @@ import styled from "styled-components"
 
 const LineWrapper = styled.path`
   fill: none;
-  stroke: steelblue;
+  stroke: ${props => props.color || "steelblue"};
   stroke-linejoin: round;
   stroke-linecap: round;
   stroke-width: 1.5;
 `
 
-const Line = ({ data, line }) => <LineWrapper d={line(data)} />
+const Line = ({ color, data, line }) => (
+  <LineWrapper color={color} d={line(data)} />
+)
 
 Line.propTypes = {
+  color: PropTypes.string,
   data: PropTypes.any,
   line: PropTypes.func.isRequired
 }

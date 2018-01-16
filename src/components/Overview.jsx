@@ -1,5 +1,20 @@
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
+
+const OverviewTable = styled.table`
+  grid-column: 4/10;
+  width: 100%;
+`
+
+const Item = styled.tr`
+  cursor: pointer;
+  height: 32px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+`
 
 export default class Overview extends React.Component {
   static propTypes = {
@@ -16,19 +31,24 @@ export default class Overview extends React.Component {
     else if (this.props.error) return <p>Error</p>
     else
       return (
-        <table>
+        <OverviewTable>
+          <thead>
+            <tr style={{ height: "24px", textAlign: "left" }}>
+              <th>Item</th>
+            </tr>
+          </thead>
+
           <tbody>
             {this.props.data.map((item, index) => (
-              <tr
+              <Item
                 key={`item-${item.id}`}
                 onClick={() => this.props.navigate(item.id)}
               >
-                <td>{item.id}</td>
                 <td>{item.name}</td>
-              </tr>
+              </Item>
             ))}
           </tbody>
-        </table>
+        </OverviewTable>
       )
   }
 }
