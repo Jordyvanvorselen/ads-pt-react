@@ -1,4 +1,5 @@
 import "babel-polyfill"
+import "./style.css"
 
 import { ConnectedRouter } from "react-router-redux"
 import { Provider } from "react-redux"

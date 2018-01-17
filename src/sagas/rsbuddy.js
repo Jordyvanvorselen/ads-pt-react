@@ -11,9 +11,11 @@ export function* getRsBuddy(id) {
       `{
           item(id: ${id}) {
             name
-            rsbuddy {
-                timestamp
-                buyingPrice
+            rsbuddy(resample: "w") {
+              timestamp
+              buyingPrice
+              buyingCompleted
+              sellingCompleted
             }
           }
         }`
