@@ -24,6 +24,10 @@ export function* getItems() {
           id
           name
           store
+          rsbuddy(resample:"d", start:"2017-10-10T00:00:00Z") {
+            sellingPrice
+            sellingCompleted
+          }
         }
       }`
     )
