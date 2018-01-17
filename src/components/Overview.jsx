@@ -3,6 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import ItemList from "./ItemList"
 import { navigateDetail } from "../actions/navigation";
+import Content from "./Content";
 
 const OverviewTable = styled.table`
   grid-column: 4/10;
@@ -24,19 +25,21 @@ export default class Overview extends React.Component {
     else if (this.props.error) return <p>Error</p>
     else
       return (
-        <div>
+        <Content>
           <ItemList
+            style={{ gridColumn: "3/6", height: "500px", width: "100%" }}
             data={this.props.data}
             orderedBy={"sellingCompleted"}
             navigate={this.props.navigate}
             title="Top selling today" />
 
           <ItemList
+            style={{ gridColumn: "8/11", height: "500px", width: "100%" }}
             data={this.props.data}
             orderedBy={"sellingPrice"}
             navigate={this.props.navigate}
             title="Most expensive today" />
-        </div>
+        </Content>
       )
   }
 }

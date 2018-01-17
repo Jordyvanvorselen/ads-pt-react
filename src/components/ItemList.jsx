@@ -44,20 +44,21 @@ export default class ItemList extends React.Component {
 
     render() {
         return (
-            <table style={{ height: "200px" }}>
+            <table style={this.props.style}>
                 <thead style={{ display: "block" }}>
                     <tr style={{ height: "24px", textAlign: "left" }}>
                         <th>{this.props.title}</th>
                     </tr>
                 </thead>
 
-                <tbody style={{ height: "200px", overflowY: "auto", overflowX: "hidden", display: "block" }}>
+                <tbody style={{ height: "500px", overflowY: "auto", overflowX: "hidden", display: "block" }}>
                     {this.state.orderedItems.map((item, index) => (
                         <Item
                             key={`item-${item.id}`}
                             onClick={() => this.props.navigate(item.id)}
                         >
                             <td>{item.name}</td>
+                            <td>{parseInt(item.rsbuddy[0][this.props.orderedBy])}</td>
                         </Item>
                     ))}
                 </tbody>
