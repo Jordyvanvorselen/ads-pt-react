@@ -9,7 +9,9 @@ const Mentions = ({ data, loading, error }) =>
     })()}</div>
 
 Mentions.propTypes = {
-    mentions: PropTypes.number.isRequired
+    data: PropTypes.number.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
