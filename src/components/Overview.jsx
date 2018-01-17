@@ -1,20 +1,8 @@
 import PropTypes from "prop-types"
 import React from "react"
-import styled from "styled-components"
-
-const OverviewTable = styled.table`
-  grid-column: 4/10;
-  width: 100%;
-`
-
-const Item = styled.tr`
-  cursor: pointer;
-  height: 32px;
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-  }
-`
+import ItemList from "./ItemList"
+import Content from "./Content";
+import Searchbar from "./Searchbar";
 
 export default class Overview extends React.Component {
   static propTypes = {
@@ -31,24 +19,22 @@ export default class Overview extends React.Component {
     else if (this.props.error) return <p>Error</p>
     else
       return (
-        <OverviewTable>
-          <thead>
-            <tr style={{ height: "24px", textAlign: "left" }}>
-              <th>Item</th>
-            </tr>
-          </thead>
+        <Content>
+          <Searchbar data={this.props.data} navigate={this.props.navigate} />
+          <ItemList
+            style={{ gridColumn: "3/6", height: "500px", width: "100%" }}
+            data={this.props.data}
+            orderedBy={"sellingCompleted"}
+            navigate={this.props.navigate}
+            title="Top selling today" />
 
-          <tbody>
-            {this.props.data.map((item, index) => (
-              <Item
-                key={`item-${item.id}`}
-                onClick={() => this.props.navigate(item.id)}
-              >
-                <td>{item.name}</td>
-              </Item>
-            ))}
-          </tbody>
-        </OverviewTable>
+          <ItemList
+            style={{ gridColumn: "8/11", height: "500px", width: "100%" }}
+            data={this.props.data}
+            orderedBy={"sellingPrice"}
+            navigate={this.props.navigate}
+            title="Most expensive today" />
+        </Content>
       )
   }
 }
