@@ -2,9 +2,11 @@ import PropTypes from "prop-types"
 import React from "react"
 
 const Chart = ({ children, margin, height, width }) => (
-  <svg width={width} height={height}>
-    <g transform={`translate(${margin.left}, ${margin.top})`}>{children}</g>
-  </svg>
+  <div className="chart">
+    <svg width={width} height={height}>
+      <g transform={`translate(${margin.left}, ${margin.top})`}>{children}</g>
+    </svg>
+  </div>
 )
 
 Chart.propTypes = {
