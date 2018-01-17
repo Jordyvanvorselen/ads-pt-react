@@ -1,8 +1,13 @@
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "styled-components"
 import ItemList from "./ItemList"
-import Content from "./Content";
-import Searchbar from "./Searchbar";
+import Content from "./Content"
+import Searchbar from "./Searchbar"
+
+const ContentGap = styled(Content)`
+  grid-column-gap: 40px;
+`
 
 export default class Overview extends React.Component {
   static propTypes = {
@@ -19,22 +24,38 @@ export default class Overview extends React.Component {
     else if (this.props.error) return <p>Error</p>
     else
       return (
-        <Content>
-          <Searchbar data={this.props.data} navigate={this.props.navigate} />
+        <ContentGap>
+          <Searchbar
+            style={{ gridRow: "1", gridColumn: "3/11" }}
+            data={this.props.data}
+            navigate={this.props.navigate}
+          />
           <ItemList
-            style={{ gridColumn: "3/6", height: "500px", width: "100%" }}
+            style={{
+              gridRow: "2",
+              gridColumn: "3/7",
+              height: "500px",
+              width: "100%"
+            }}
             data={this.props.data}
             orderedBy={"sellingCompleted"}
             navigate={this.props.navigate}
-            title="Top selling today" />
+            title="Top selling today"
+          />
 
           <ItemList
-            style={{ gridColumn: "8/11", height: "500px", width: "100%" }}
+            style={{
+              gridRow: "2",
+              gridColumn: "7/11",
+              height: "500px",
+              width: "100%"
+            }}
             data={this.props.data}
             orderedBy={"sellingPrice"}
             navigate={this.props.navigate}
-            title="Most expensive today" />
-        </Content>
+            title="Most expensive today"
+          />
+        </ContentGap>
       )
   }
 }

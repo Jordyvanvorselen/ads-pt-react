@@ -4,7 +4,7 @@ import styled from "styled-components"
 import queryString from "query-string"
 import PriceChart from "./charts/PriceChart"
 import SupplyDemandChart from "./charts/SupplyDemandChart"
-import Content from "./Content";
+import Content from "./Content"
 
 export default class Detail extends React.Component {
   static propTypes = {
@@ -22,9 +22,12 @@ export default class Detail extends React.Component {
 
     return (
       <Content>
-        <div style={{ gridColumn: "3/11" }} ref={wrapper => {
-          this.wrapper = wrapper
-        }}>
+        <div
+          style={{ gridColumn: "3/11" }}
+          ref={wrapper => {
+            this.wrapper = wrapper
+          }}
+        >
           {(() => {
             const width = this.wrapper
               ? this.wrapper.getBoundingClientRect().width
@@ -35,8 +38,8 @@ export default class Detail extends React.Component {
             else if (this.props.error) return <p>Error</p>
             else {
               return (
-                <div>
-                  <h1>{this.props.data.name}</h1>
+                <div class="detail-wrapper">
+                  <h2>{this.props.data.name}</h2>
 
                   <PriceChart
                     data={this.props.data.rsbuddy}

@@ -9,4 +9,70 @@ html {
   height: 100vh;
   overflow-x: hidden;
   font-family: Lato, sans-serif;
+  background-color: #263238;
+}
+
+.item-list {
+  background-color: #37474f;
+  color: #cfd8dc;
+  display: table;
+}
+
+.item-list thead {
+  width: 100%;
+  display: table;
+  text-align: left;
+}
+
+.item-list th {
+  width: 100%;
+}
+
+.item-list thead th:nth-child(2) {
+  text-align: right;
+}
+
+h1 {
+  text-align: center;
+  font-size: 48px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.searchbar {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.searchbar > div {
+  width: 100%;
+}
+
+.searchbar input {
+  width: 100%;
+  height: 35px;
+  font-size: 18px;
+}
+
+th {
+  font-size: 20px;
+  padding: 5px;
+}
+
+tr > td {
+  padding-left: 5px;
+}
+
+.chart svg {
+  background-color: #37474f;
+}
+
+h2 {
+  color: #cfd8dc;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
 }
