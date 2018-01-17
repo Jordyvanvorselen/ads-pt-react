@@ -6,6 +6,7 @@ import PriceChart from "./charts/PriceChart"
 import SupplyDemandChart from "./charts/SupplyDemandChart"
 import Content from "./Content"
 import Mentions from "../containers/Mentions"
+
 export default class Detail extends React.Component {
   static propTypes = {
     fetchRsBuddy: PropTypes.func.isRequired
@@ -23,7 +24,7 @@ export default class Detail extends React.Component {
     return (
       <Content>
         <div
-          style={{ gridColumn: "3/11" }}
+          style={{ gridColumn: "2/9" }}
           ref={wrapper => {
             this.wrapper = wrapper
           }}
@@ -67,7 +68,28 @@ export default class Detail extends React.Component {
           })()}
         </div>
 
-        <Mentions />
+        <div style={{ gridColumn: "10/12", gridRow: "1" }}>
+          <h2>Item Information</h2>
+        </div>
+
+        <img
+          style={{
+            marginTop: "120px",
+            marginLeft: "50px",
+            width: "75px",
+            height: "75px",
+            gridColumn: "10/11",
+            gridRow: "1"
+          }}
+          src="http://i.imgur.com/sdO8tAw.png"
+          alt="reddit logo"
+        />
+        <div
+          className="reddit-mention-text"
+          style={{ gridColumn: "11/12", gridRow: "1" }}
+        >
+          <Mentions />
+        </div>
       </Content>
     )
   }
