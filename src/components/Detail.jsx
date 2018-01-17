@@ -4,13 +4,8 @@ import styled from "styled-components"
 import queryString from "query-string"
 import PriceChart from "./charts/PriceChart"
 import SupplyDemandChart from "./charts/SupplyDemandChart"
-<<<<<<< HEAD
 import Content from "./Content"
-=======
-import Content from "./Content";
 import Mentions from "../containers/Mentions"
->>>>>>> fba58f9b3852f39503c2300d121da4abe50bad34
-
 export default class Detail extends React.Component {
   static propTypes = {
     fetchRsBuddy: PropTypes.func.isRequired
