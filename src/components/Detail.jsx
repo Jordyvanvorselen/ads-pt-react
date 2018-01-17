@@ -75,7 +75,7 @@ export default class Detail extends React.Component {
 
         <img
           style={{
-            marginTop: "120px",
+            marginTop: "175px",
             marginLeft: "50px",
             width: "75px",
             height: "75px",
@@ -89,7 +89,7 @@ export default class Detail extends React.Component {
           className="reddit-mention-text"
           style={{ gridColumn: "11/12", gridRow: "1" }}
         >
-          <Mentions />
+          <Mentions /> <br />
           <Update />
         </div>
       </Content>
