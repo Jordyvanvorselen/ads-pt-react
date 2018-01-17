@@ -6,6 +6,8 @@ import PriceChart from "./charts/PriceChart"
 import SupplyDemandChart from "./charts/SupplyDemandChart"
 import Content from "./Content"
 import Mentions from "../containers/Mentions"
+import Update from "../containers/Update"
+
 export default class Detail extends React.Component {
   static propTypes = {
     fetchRsBuddy: PropTypes.func.isRequired
@@ -68,6 +70,7 @@ export default class Detail extends React.Component {
         </div>
 
         <Mentions />
+        <Update />
       </Content>
     )
   }
