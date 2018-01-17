@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import ItemList from "./ItemList"
 import Content from "./Content";
+import Searchbar from "./Searchbar";
 
 export default class Overview extends React.Component {
   static propTypes = {
@@ -19,6 +20,7 @@ export default class Overview extends React.Component {
     else
       return (
         <Content>
+          <Searchbar data={this.props.data} navigate={this.props.navigate} />
           <ItemList
             style={{ gridColumn: "3/6", height: "500px", width: "100%" }}
             data={this.props.data}
