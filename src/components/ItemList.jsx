@@ -57,8 +57,8 @@ export default class ItemList extends React.Component {
                             key={`item-${item.id}`}
                             onClick={() => this.props.navigate(item.id)}
                         >
-                            <td>{item.name}</td>
-                            <td>{parseInt(item.rsbuddy[0][this.props.orderedBy])}</td>
+                            <td style={{ width: "100%" }}>{item.name}</td>
+                            <td style={{ width: "100%" }}>{parseInt(item.rsbuddy[0][this.props.orderedBy], 10)}</td>
                         </Item>
                     ))}
                 </tbody>

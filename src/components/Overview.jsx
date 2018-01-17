@@ -1,14 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
-import styled from "styled-components"
 import ItemList from "./ItemList"
-import { navigateDetail } from "../actions/navigation";
 import Content from "./Content";
-
-const OverviewTable = styled.table`
-  grid-column: 4/10;
-  width: 100%;
-`
 
 export default class Overview extends React.Component {
   static propTypes = {

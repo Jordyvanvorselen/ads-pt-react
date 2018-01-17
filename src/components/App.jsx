@@ -1,6 +1,5 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import Content from "./Content"
 import Detail from "../containers/Detail"
 import Header from "./Header"
 import Overview from "../containers/Overview"
