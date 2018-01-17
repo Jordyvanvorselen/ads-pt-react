@@ -10,6 +10,7 @@ export function* getRsBuddy(id) {
       "http://192.168.27.170/graphql",
       `{
           item(id: ${id}) {
+            id
             name
             rsbuddy(resample: "w") {
               timestamp

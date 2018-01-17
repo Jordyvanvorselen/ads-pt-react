@@ -1,18 +1,20 @@
 import { call, fork, put, take } from "redux-saga/effects"
 import { RSBUDDY_FETCH_SUCCESS } from "../actions/action-types";
-import { fetchUpdatesSuccess, fetchUpdatesFailed } from "../actions/updates";
+import { fetchUpdatesSuccess, fetchUpdatesFailed, fetchUpdates } from "../actions/updates";
 
 export function* getUpdates(name) {
     try {
+        yield put(fetchUpdates())
         const data = yield call(
             fetch,
-            `http://192.168.27.170/mentions/mentionsdates?word=${name}&startdate=1504224000&enddate=1514678400`,
+            `http://192.168.27.170/updates/`,
             {
-                methods: "POST"
+                method: "POST"
             }
         )
 
-        yield put(fetchUpdatesSuccess(data))
+        const updates = yield data.json()
+        yield put(fetchUpdatesSuccess(updates))
     } catch (exception) {
         yield put(fetchUpdatesFailed())
         //throw exception

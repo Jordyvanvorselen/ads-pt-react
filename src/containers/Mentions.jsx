@@ -6,13 +6,16 @@ const Mentions = ({ data, loading, error }) => (
   <div className="reddit-mentions-amount">
     {(() => {
       if (loading) return "Loading Reddit mentions..."
+      if (error) return "Error"
       else return `This item was mentioned ${data} times the past month.`
     })()}
   </div>
 )
 
 Mentions.propTypes = {
-  mentions: PropTypes.number.isRequired
+  data: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

@@ -6,6 +6,7 @@ import PriceChart from "./charts/PriceChart"
 import SupplyDemandChart from "./charts/SupplyDemandChart"
 import Content from "./Content"
 import Mentions from "../containers/Mentions"
+import Update from "../containers/Update"
 
 export default class Detail extends React.Component {
   static propTypes = {
@@ -89,6 +90,7 @@ export default class Detail extends React.Component {
           style={{ gridColumn: "11/12", gridRow: "1" }}
         >
           <Mentions />
+          <Update />
         </div>
       </Content>
     )
